@@ -3,30 +3,51 @@
 }
 
 /* Top Bar */
-
-#chatTopBar{
+#chatRoom{
 	height:40px;
-	background:url('../img/solid_gray.jpg') repeat-x #d0d0d0;
-	border:1px solid #fff;
 	margin-bottom:15px;
 	position:relative;
-	
+}
+
+#chatMember1{
+	height:40px;
+	margin-bottom:15px;
+	position:relative;
 	color:#777;
 	text-shadow:1px 1px 0 #FFFFFF;
 }
 
-#chatTopBar .name{
+#chatMember1 .name{
 	position:absolute;
 	top:10px;
 	left:40px;
 }
 
-#chatTopBar img{
+#chatMember1 img{
 	left:9px;
 	position:absolute;
 	top:8px;
 }
 
+#chatMember2{
+	height:40px;
+	margin-bottom:15px;
+	position:relative;
+	color:#777;
+	text-shadow:1px 1px 0 #FFFFFF;
+}
+
+#chatMember2 .name{
+	position:absolute;
+	top:10px;
+	left:40px;
+}
+
+#chatMember2 img{
+	left:9px;
+	position:absolute;
+	top:8px;
+}
 
 /* Chats */
 
@@ -96,7 +117,7 @@
 
 
 #chatUsers{
-	background-color:#202020;
+	background-color:white;
 	border:1px solid #111111;
 	height:360px;
 	position:absolute;

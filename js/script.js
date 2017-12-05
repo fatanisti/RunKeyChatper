@@ -19,8 +19,10 @@ var chat = {
 	init : function(){
 		
 		// Using the defaultText jQuery plugin, included at the bottom:
-		$('#name').defaultText('Nickname');
-		$('#email').defaultText('Email (Gravatars are Enabled)');
+		$('#name1').defaultText('Nickname');
+		$('#email1').defaultText('Email (Gravatars are Enabled)');
+		$('#name2').defaultText('Nickname');
+		$('#email2').defaultText('Email (Gravatars are Enabled)');
 		
 		// Converting the #chatLineHolder div into a jScrollPane,
 		// and saving the plugin's API in chat.data:
@@ -37,7 +39,7 @@ var chat = {
 		
 		// Logging a person in the chat:
 		
-		$('#loginForm').submit(function(){
+		$('#loginForm1').submit(function(){
 			
 			if(working) return false;
 			working = true;
@@ -59,9 +61,9 @@ var chat = {
 		
 		// Submitting a new chat entry:
 		
-		$('#submitForm').submit(function(){
+		$('#submitForm1').submit(function(){
 			
-			var text = $('#chatText').val();
+			var text = $('#chatText1').val();
 			
 			if(text.length == 0){
 				return false;
@@ -91,7 +93,49 @@ var chat = {
 			$.tzPOST('submitChat',$(this).serialize(),function(r){
 				working = false;
 				
-				$('#chatText').val('');
+				$('#chatText1').val('');
+				$('div.chat-'+tempID).remove();
+				
+				params['id'] = r.insertID;
+				chat.addChatLine($.extend({},params));
+			});
+			
+			return false;
+		});
+
+		$('#submitForm2').submit(function(){
+			
+			var text = $('#chatText2').val();
+			
+			if(text.length == 0){
+				return false;
+			}
+			
+			if(working) return false;
+			working = true;
+			
+			// Assigning a temporary ID to the chat:
+			var tempID = 't'+Math.round(Math.random()*1000000),
+				params = {
+					id			: tempID,
+					author		: chat.data.name,
+					gravatar	: chat.data.gravatar,
+					text		: text.replace(/</g,'&lt;').replace(/>/g,'&gt;')
+				};
+
+			// Using our addChatLine method to add the chat
+			// to the screen immediately, without waiting for
+			// the AJAX request to complete:
+			
+			chat.addChatLine($.extend({},params));
+			
+			// Using our tzPOST wrapper method to send the chat
+			// via a POST AJAX request:
+			
+			$.tzPOST('submitChat',$(this).serialize(),function(r){
+				working = false;
+				
+				$('#chatText2').val('');
 				$('div.chat-'+tempID).remove();
 				
 				params['id'] = r.insertID;
@@ -105,12 +149,27 @@ var chat = {
 		
 		$('a.logoutButton').live('click',function(){
 			
-			$('#chatTopBar > span').fadeOut(function(){
+			$('#chatMember1 > span').fadeOut(function(){
 				$(this).remove();
 			});
 			
-			$('#submitForm').fadeOut(function(){
-				$('#loginForm').fadeIn();
+			$('#submitForm1').fadeOut(function(){
+				$('#loginForm1').fadeIn();
+			});
+			
+			$.tzPOST('logout');
+			
+			return false;
+		});
+
+		$('a.logoutButton').live('click',function(){
+			
+			$('#chatMember2 > span').fadeOut(function(){
+				$(this).remove();
+			});
+			
+			$('#submitForm2').fadeOut(function(){
+				$('#loginForm2').fadeIn();
 			});
 			
 			$.tzPOST('logout');
@@ -145,11 +204,11 @@ var chat = {
 		
 		chat.data.name = name;
 		chat.data.gravatar = gravatar;
-		$('#chatTopBar').html(chat.render('loginTopBar',chat.data));
+		$('#chatMember1').html(chat.render('loginTopBar',chat.data));
 		
-		$('#loginForm').fadeOut(function(){
-			$('#submitForm').fadeIn();
-			$('#chatText').focus();
+		$('#loginForm1').fadeOut(function(){
+			$('#submitForm1').fadeIn();
+			$('#chatText1').focus();
 		});
 		
 	},

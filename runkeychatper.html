@@ -11,66 +11,69 @@
 <body>
 <div id="mainContainer">
     <div class="container">
-        <div class="col-sm-6 col-md-6 col-lg-6">
-            <div class="package">
-                <div id="chatTopBar" class="rounded"></div>
-                <div id="chatLineHolder"></div>
-                <div id="chatUsers" class="rounded"></div>    
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6">
-            <div class="row">
+        <div class="row">
+            <div class="col-6">
                 <div class="package">
-                    <p>User #1</p>
-                    <div id="chatBottomBar" class="rounded">
-                        <div class="tip"></div>
-                        <form id="loginForm" method="post" action="">
-                            <input id="name" name="name" class="rounded" maxlength="16" />
-                            <input id="email" name="email" class="rounded" />
-                            <input type="submit" class="blueButton" value="Login" />
-                        </form>
-                        <form id="submitForm" method="post" action="">
-                            <input id="chatText" name="chatText" class="rounded" />
-                            <input type="submit" class="blueButton" value="Cipher" />
-                            <input type="submit" class="blueButton" value="Submit" />
-                        </form>
-                    </div>
+                    <div id="chatRoom" class="rounded bg-success text-light"><center>CHAT ROOM</center></div>
+                    <div id="chatLineHolder"></div>
+                    <div id="chatUsers" class="rounded"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="package">
-                    <p>User #2</p>
-                    <div id="chatBottomBar" class="rounded">
-                        <div class="tip"></div>
-                        <form id="loginForm" method="post" action="">
-                            <input id="name" name="name" class="rounded" maxlength="16" />
-                            <input id="email" name="email" class="rounded" />
-                            <input type="submit" class="blueButton" value="Login" />
-                        </form>
-                        <form id="submitForm" method="post" action="">
-                            <input id="chatText" name="chatText" class="rounded" />
-                            <input type="submit" class="blueButton" value="Cipher" />
-                            <input type="submit" class="blueButton" value="Submit" />
-                        </form>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <div class="row">
+                    <div class="package">
+                        <div id="chatMember1" class="rounded bg-info"></div>
+                        <div id="chatBottomBar" class="rounded">
+                            <div class="tip"></div>
+                            <form id="loginForm1" method="post" action="">
+                                <input id="name1" name="name1" class="rounded" maxlength="16" />
+                                <input id="email1" name="email1" class="rounded" />
+                                <input type="submit" class="blueButton" value="Login" />
+                            </form>
+                            <form id="submitForm1" method="post" action="">
+                                <input id="chatText1" name="chatText1" class="rounded" />
+                                <input type="submit" class="blueButton" value="Submit" />
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="package"><textarea class="form-control" id="CipherCode" rows="4"></textarea></div>
-            </div>
-            <div class="row">
-                <div class="package">
-                    <button class="btn btn-warning">Reset</button>
-                    <button class="btn btn-primary">Apply</button>
+                </div><br>
+                <div class="row">
+                    <div class="package">
+                        <div id="chatMember2" class="rounded bg-info"></div>
+                        <div id="chatBottomBar" class="rounded">
+                            <div class="tip"></div>
+                            <form id="loginForm2" method="post" action="">
+                                <input id="name2" name="name2" class="rounded" maxlength="16" />
+                                <input id="email2" name="email2" class="rounded" />
+                                <input type="submit" class="blueButton" value="Login" />
+                            </form>
+                            <form id="submitForm2" method="post" action="">
+                                <input id="chatText2" name="chatText2" class="rounded" />
+                                <input type="submit" class="blueButton" value="Submit" />
+                            </form>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <textarea class="form-control" id="CipherCode" rows="4"></textarea>
+                </div><br>
+                <div class="row">
+                    <div class="col-2">
+                        <button class="btn btn-warning">Reset</button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary">Apply</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="header">
+<div id="header" class="bg-secondary">
     <center><p>RunKey Chatper</p></center>
 </div>
-<div id="footer">
+<div id="footer" class="bg-secondary">
     <center><p>Farhan P. Adjie X Fatan A. Ahdiy</p></center>
 </div>
 
